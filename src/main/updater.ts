@@ -1,7 +1,7 @@
 import { autoUpdater } from 'electron-updater'
 import { BrowserWindow, dialog } from 'electron'
 import { ProgressInfo } from 'builder-util-runtime'
-
+import log from 'electron-log'
 class AppUpdater {
   private mainWindow: BrowserWindow
 
@@ -28,6 +28,7 @@ class AppUpdater {
 
     // 更新可用时通知
     autoUpdater.on('update-available', (info) => {
+      log.info('🆕 检测到新版本，准备提示用户...')
       dialog
         .showMessageBox(this.mainWindow, {
           type: 'info',
@@ -45,11 +46,13 @@ class AppUpdater {
 
     // 更新错误处理
     autoUpdater.on('error', (error) => {
+      log.error('🚨 更新错误：', error)
       this.mainWindow.webContents.send('update-error', error.message)
     })
 
     // 更新准备完成
     autoUpdater.on('update-downloaded', () => {
+      log.info('🔄 更新准备就绪，准备提示用户...')
       dialog
         .showMessageBox(this.mainWindow, {
           type: 'info',
@@ -59,6 +62,7 @@ class AppUpdater {
         })
         .then(({ response }) => {
           if (response === 0) {
+            log.info('🔄 用户选择立即重启，准备退出...')
             autoUpdater.quitAndInstall()
           }
         })

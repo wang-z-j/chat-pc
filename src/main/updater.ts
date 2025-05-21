@@ -1,5 +1,5 @@
 import { autoUpdater } from 'electron-updater'
-import { BrowserWindow, dialog } from 'electron'
+import { BrowserWindow, dialog, app } from 'electron'
 import { ProgressInfo } from 'builder-util-runtime'
 import log from 'electron-log'
 class AppUpdater {
@@ -11,6 +11,10 @@ class AppUpdater {
   }
 
   private configureAutoUpdater(): void {
+    // 打印当前版本
+    log.info('当前版本：', app.getVersion())
+    // 打印当前应用路径
+    log.info('当前应用路径：', app.getAppPath())
     autoUpdater.autoDownload = false
     autoUpdater.allowPrerelease = false
 
@@ -63,7 +67,7 @@ class AppUpdater {
         .then(({ response }) => {
           if (response === 0) {
             log.info('🔄 用户选择立即重启，准备退出...')
-            autoUpdater.quitAndInstall()
+            autoUpdater.quitAndInstall(false, true)
           }
         })
     })

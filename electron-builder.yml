@@ -42,6 +42,8 @@ mac:
   hardenedRuntime: false
   gatekeeperAssess: false
   identity: null
+  entitlements: null
+  entitlementsInherit: null
   target:
     - dmg
     - zip

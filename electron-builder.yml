@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: 蓝翼AI门户
+productName: LanyiAIPortal
 directories:
   buildResources: build
 files:
@@ -20,11 +20,11 @@ nsis:
   uninstallDisplayName: ${productName}
   oneClick: false
   allowElevation: true
-  allowToChangeInstallationDirectory: true 
-  installerIcon: "build/icon.ico"
-  uninstallerIcon: "build/icon.ico"
-  installerHeader: "build/icon.ico"
-  installerHeaderIcon: "build/icon.ico"
+  allowToChangeInstallationDirectory: true
+  installerIcon: 'build/icon.ico'
+  uninstallerIcon: 'build/icon.ico'
+  installerHeader: 'build/icon.ico'
+  installerHeaderIcon: 'build/icon.ico'
   createDesktopShortcut: true
   createStartMenuShortcut: true
 
@@ -50,4 +50,4 @@ appImage:
 npmRebuild: false
 publish:
   provider: generic
-  url: https://example.com/auto-updates
+  url: http://localhost:8080/

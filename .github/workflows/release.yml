@@ -1,4 +1,4 @@
-name: Build and Publish (Windows)
+name: Build Mac DMG
 
 on:
   push:
@@ -6,8 +6,8 @@ on:
       - 'v*' # 当你推送 tag，如 v1.0.1 时触发
 
 jobs:
-  build-win:
-    runs-on: windows-latest
+  build-mac:
+    runs-on: macos-latest
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -25,4 +25,4 @@ jobs:
         run: npm install
 
       - name: Build and publish to GitHub Releases
-        run: npm run publish:win_github
+        run: npm run publish:mac_github

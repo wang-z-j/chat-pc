@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: 蓝翼AI门户
+productName: lanyiAI
 directories:
   buildResources: build
 files:
@@ -13,6 +13,9 @@ asarUnpack:
   - resources/**
 win:
   executableName: lanyiAI
+  target:
+    - nsis # 默认推荐
+  icon: build/icon.ico # 可选，推荐使用 ICO 格式图标
 nsis:
   unicode: true
   artifactName: lanyiAI_for_windows_${version}_setup.${ext}
@@ -20,11 +23,11 @@ nsis:
   uninstallDisplayName: ${productName}
   oneClick: false
   allowElevation: true
-  allowToChangeInstallationDirectory: true 
-  installerIcon: "build/icon.ico"
-  uninstallerIcon: "build/icon.ico"
-  installerHeader: "build/icon.ico"
-  installerHeaderIcon: "build/icon.ico"
+  allowToChangeInstallationDirectory: true
+  installerIcon: 'build/icon.ico'
+  uninstallerIcon: 'build/icon.ico'
+  installerHeader: 'build/icon.ico'
+  installerHeaderIcon: 'build/icon.ico'
   createDesktopShortcut: true
   createStartMenuShortcut: true
 
@@ -49,5 +52,7 @@ appImage:
   artifactName: lanyiAI_for_linux_${version}.${ext}
 npmRebuild: false
 publish:
-  provider: generic
-  url: https://example.com/auto-updates
+  provider: github
+  owner: wang-z-j
+  repo: chat-pc
+  releaseType: release

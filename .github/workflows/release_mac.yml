@@ -1,13 +1,13 @@
-name: Build Windows EXE
+name: Build Mac DMG
 
 on:
   push:
     tags:
-      - 'v*' # 推送版本标签时触发，如 v1.0.1
+      - 'v*' # 当你推送 tag，如 v1.0.1 时触发
 
 jobs:
-  build-win:
-    runs-on: windows-latest
+  build-mac:
+    runs-on: macos-latest
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -19,10 +19,10 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # 建议使用 LTS 版本（如 18）
+          node-version: 23
 
       - name: Install dependencies
         run: npm install
 
       - name: Build and publish to GitHub Releases
-        run: npm run publish:win_github
+        run: npm run publish:mac_github

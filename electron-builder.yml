@@ -17,15 +17,9 @@ win:
     - nsis # 默认推荐
   icon: build/icon.ico # 可选，推荐使用 ICO 格式图标
 nsis:
-  unicode: true
-  artifactName: lanyiAI_for_windows_${version}_setup.${ext}
-  shortcutName: ${productName}
-  uninstallDisplayName: ${productName}
   oneClick: false
   allowElevation: true
   allowToChangeInstallationDirectory: true
-  createDesktopShortcut: true
-  createStartMenuShortcut: true
   include: build/installer.nsh
 mac:
   extendInfo:

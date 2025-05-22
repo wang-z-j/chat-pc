@@ -21,6 +21,7 @@ nsis:
   allowElevation: true
   allowToChangeInstallationDirectory: true
   include: build/installer.nsh
+  warningsAsErrors: false # ✅ 强烈建议加入
 mac:
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.

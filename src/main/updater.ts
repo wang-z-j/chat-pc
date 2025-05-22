@@ -23,12 +23,12 @@ class AppUpdater {
     // 更新进度处理
     autoUpdater.on('download-progress', (progress: ProgressInfo) => {
       log.info('📦 下载进度对象：', JSON.stringify(progress, null, 2))
-      // this.mainWindow.webContents.send('update-progress', {
-      //   percent: progress.percent.toFixed(1),
-      //   bytesPerSecond: (progress.bytesPerSecond / 1024).toFixed(0),
-      //   transferred: (progress.transferred / 1048576).toFixed(2),
-      //   total: (progress.total / 1048576).toFixed(2)
-      // })
+      this.mainWindow.webContents.send('update-progress', {
+        percent: progress.percent.toFixed(1),
+        bytesPerSecond: (progress.bytesPerSecond / 1024).toFixed(0),
+        transferred: (progress.transferred / 1048576).toFixed(2),
+        total: (progress.total / 1048576).toFixed(2)
+      })
     })
 
     // 更新可用时通知

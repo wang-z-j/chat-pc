@@ -6,7 +6,7 @@
 Var installScope
 
 ; 👇 解决语言加载冲突的关键修改
-!insertmacro MUI_LANGUAGEEX "SimpChinese" "CHS" "SimpChinese.nlf"
+!insertmacro MUI_LANGUAGEEX "SimpChinese" "CHS"
 
 Page custom SelectScopePage ScopePageLeave
 !insertmacro MUI_PAGE_DIRECTORY

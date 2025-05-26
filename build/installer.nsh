@@ -4,8 +4,6 @@ Unicode true
 !include "MUI2.nsh"
 !include "nsDialogs.nsh"
 
-!define PRODUCT_NAME "LanyiAIPortal"
-!define PRODUCT_VERSION "1.0.0"
 !define PRODUCT_PUBLISHER "ccccltd, Inc."
 !define PRODUCT_WEB_SITE "https://c4ai.ccccltd.cn/"
 
@@ -18,13 +16,11 @@ Var TaskbarPinCheckState
 
 ; ✅ 你希望的引导顺序
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "license.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 Page custom SetOptions SetOptionsLeave
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
 
-!insertmacro MUI_LANGUAGE "SimpChinese"
 
 ; 自定义选项页
 Function SetOptions

@@ -18,6 +18,7 @@ win:
   icon: build/icon.ico # 可选，推荐使用 ICO 格式图标
 nsis:
   oneClick: false
+  runAfterFinish: false
   allowElevation: true
   allowToChangeInstallationDirectory: true
   include: build/installer.nsh

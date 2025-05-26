@@ -22,7 +22,6 @@ nsis:
   allowElevation: true
   allowToChangeInstallationDirectory: true
   include: build/installer.nsh
-  includeLanguages: false # ✅ 不要自动插 MUI_LANGUAGE
   warningsAsErrors: false
 mac:
   extendInfo:

@@ -1,7 +1,14 @@
-; 启用Unicode支持
+; 启用 Unicode
 Unicode true
 
+!include "MUI2.nsh"
 !include "nsDialogs.nsh"
+
+!define PRODUCT_NAME "LanyiAIPortal"
+!define PRODUCT_VERSION "1.0.0"
+!define PRODUCT_PUBLISHER "ccccltd, Inc."
+!define PRODUCT_WEB_SITE "https://c4ai.ccccltd.cn/"
+
 Var Dialog
 Var AutoStartCheckbox
 Var DesktopShortcutCheckbox
@@ -9,9 +16,17 @@ Var TaskbarPinCheckbox
 Var AutoStartState
 Var TaskbarPinCheckState
 
-; 只插入自定义选项页（不会和 electron-builder 模板冲突）
+; ✅ 你希望的引导顺序
+!insertmacro MUI_PAGE_WELCOME
+!insertmacro MUI_PAGE_LICENSE "license.txt"
+!insertmacro MUI_PAGE_DIRECTORY
 Page custom SetOptions SetOptionsLeave
+!insertmacro MUI_PAGE_INSTFILES
+!insertmacro MUI_PAGE_FINISH
 
+!insertmacro MUI_LANGUAGE "SimpChinese"
+
+; 自定义选项页
 Function SetOptions
   nsDialogs::Create 1018
   Pop $Dialog
@@ -40,17 +55,14 @@ Function SetOptionsLeave
   ${NSD_GetState} $TaskbarPinCheckbox $TaskbarPinCheckState
 FunctionEnd
 
-; 安装后执行动作
 Section -Post
   ${If} $0 == ${BST_CHECKED}
-    CreateShortCut "$DESKTOP\${productName}.lnk" "$INSTDIR\${executableName}.exe"
+    CreateShortCut "$DESKTOP\${PRODUCT_NAME}.lnk" "$INSTDIR\${executableName}.exe"
   ${EndIf}
-
   ${If} $AutoStartState == ${BST_CHECKED}
-    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "${productName}" '"$INSTDIR\${executableName}.exe"'
+    WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "${PRODUCT_NAME}" '"$INSTDIR\${executableName}.exe"'
   ${EndIf}
-
   ${If} $TaskbarPinCheckState == ${BST_CHECKED}
-    ;ExecWait '"$INSTDIR\syspin.exe" "$INSTDIR\${executableName}.exe" c:5386'
+    ExecWait '"$INSTDIR\syspin.exe" "$INSTDIR\${executableName}.exe" c:5386'
   ${EndIf}
 SectionEnd

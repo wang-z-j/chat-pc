@@ -22,7 +22,9 @@ nsis:
   allowElevation: true
   allowToChangeInstallationDirectory: true
   include: build/installer.nsh
-  warningsAsErrors: false # ✅ 强烈建议加入
+  includeLanguages: false # ✅ 不要自动插 MUI_LANGUAGE
+  script: false # ✅ 不要自动插 MUI_PAGE_*，你写的才生效
+  warningsAsErrors: false
 mac:
   extendInfo:
     - NSCameraUsageDescription: Application requests access to the device's camera.

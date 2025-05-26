@@ -10,7 +10,8 @@ Unicode true
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_INSTFILES
-
+; ⚠️ 覆盖安装完成页默认的执行
+!define MUI_FINISHPAGE_RUN "$INSTDIR\lanyiAI.exe"
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"
 ShowInstDetails show

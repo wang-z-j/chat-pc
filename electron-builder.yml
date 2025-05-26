@@ -23,7 +23,6 @@ nsis:
   allowToChangeInstallationDirectory: true
   include: build/installer.nsh
   includeLanguages: false # ✅ 不要自动插 MUI_LANGUAGE
-  script: false # ✅ 不要自动插 MUI_PAGE_*，你写的才生效
   warningsAsErrors: false
 mac:
   extendInfo:

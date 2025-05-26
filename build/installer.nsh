@@ -10,7 +10,6 @@ Unicode true
 !insertmacro MUI_PAGE_FINISH
 
 !insertmacro MUI_UNPAGE_INSTFILES
-!insertmacro MUI_LANGUAGE "SimpChinese"
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 InstallDir "$PROGRAMFILES\${PRODUCT_NAME}"

@@ -50,8 +50,7 @@ Section "Install"
   SetOutPath "$INSTDIR"
 
   ; ★ 复制完整应用文件。${APP_DIR} 由 electron-builder 注入，路径指向 win-unpacked
-  File /r "${APP_DIR}\*.*"
-
+  File /r "${APP_DIR}\*"
   ; 额外工具
   File "${BUILD_RESOURCES_DIR}\syspin.exe"
 

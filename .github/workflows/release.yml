@@ -1,29 +1,31 @@
-name: Build Windows EXE
-
-on:
-  push:
-    tags:
-      - 'v*' # 推送版本标签时触发，如 v1.0.1
-
 jobs:
-  build-win:
+  build-windows:
     runs-on: windows-latest
 
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
     steps:
-      - name: Checkout source
+      - name: Checkout code
         uses: actions/checkout@v3
 
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # 建议使用 LTS 版本（如 18）
+          node-version: 18
 
       - name: Install dependencies
-        run: npm install
+        run: npm i
+
       - name: Install NSIS
         run: choco install nsis -y
-      - name: Build and publish to GitHub Releases
-        run: npm run publish:win_github
+
+      - name: Build electron app (dir)
+        run: npx electron-builder --win --dir
+        # 这一步会生成 win-unpacked
+
+      - name: Check win-unpacked contents
+        run: dir /s .\dist\win-unpacked
+
+      - name: Build installer and publish
+        run: npx electron-builder --win --publish always

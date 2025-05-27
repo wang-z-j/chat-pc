@@ -26,9 +26,12 @@ jobs:
 
       - name: Build electron app (generate out/main/index.js)
         run: npm run build
-
       - name: Check out/main exists
         run: Get-ChildItem -Path out/main/index.js -Recurse
+      - name: Generate win-unpacked
+        run: npx electron-builder --win --dir
+      - name: Check win-unpacked contents
+        run: Get-ChildItem -Path dist/win-unpacked -Recurse
 
       - name: Install NSIS
         run: choco install nsis -y

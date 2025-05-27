@@ -1,6 +1,6 @@
 ; 必须首行
 Unicode true
-
+!echo "APP_DIR = ${APP_DIR}"
 !include "MUI2.nsh"
 !include "nsDialogs.nsh"
 
@@ -51,8 +51,9 @@ Section "Install"
 
   ; ★ 复制完整应用文件。${APP_DIR} 由 electron-builder 注入，路径指向 win-unpacked
   File /r "${APP_DIR}\*"
+
   ; 额外工具
-  File "${BUILD_RESOURCES_DIR}\syspin.exe"
+  ;File "${BUILD_RESOURCES_DIR}\syspin.exe"
 
   ; 桌面快捷方式
   ${If} $vDesktop == ${BST_CHECKED}
@@ -66,7 +67,7 @@ Section "Install"
 
   ; 任务栏固定
   ${If} $vPin == ${BST_CHECKED}
-    ExecWait '"$INSTDIR\syspin.exe" "$INSTDIR\${executableName}.exe" c:5386'
+    ;ExecWait '"$INSTDIR\syspin.exe" "$INSTDIR\${executableName}.exe" c:5386'
   ${EndIf}
 
   WriteUninstaller "$INSTDIR\uninst.exe"

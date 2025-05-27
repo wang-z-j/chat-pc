@@ -70,3 +70,15 @@ Section "Install"
 
   WriteUninstaller "$INSTDIR\uninst.exe"
 SectionEnd
+
+
+; 卸载部分
+Section "Uninstall"
+  Delete "$INSTDIR\uninstall.exe"
+  Delete "$INSTDIR\lanyiAI.exe"
+
+  Delete "$DESKTOP\${PRODUCT_NAME}.lnk"
+  DeleteRegValue HKCU "Software\Microsoft\Windows\CurrentVersion\Run" "${PRODUCT_NAME}"
+
+  RMDir /r "$INSTDIR"
+SectionEnd

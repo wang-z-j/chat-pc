@@ -50,8 +50,8 @@ FunctionEnd
 ;----------------  主安装节  ----------------
 Section "Install"
   SetOutPath "$INSTDIR"
-  File /r "dist\\*.*"
-  File "build\\syspin.exe"
+  ;File /r "dist\\*.*"
+  ;File "build\\syspin.exe"
 
   ; 桌面快捷方式
   ${If} $VAL_DESKTOP == ${BST_CHECKED}
@@ -65,7 +65,7 @@ Section "Install"
 
   ; 任务栏固定
   ${If} $VAL_PIN == ${BST_CHECKED}
-    ExecWait '"$INSTDIR\\syspin.exe" "$INSTDIR\\${EXE_NAME}" c:5386'
+    ;ExecWait '"$INSTDIR\\syspin.exe" "$INSTDIR\\${EXE_NAME}" c:5386'
   ${EndIf}
 
   ; 卸载信息

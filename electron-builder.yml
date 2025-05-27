@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: 蓝翼AI门户
+productName: lanyiAI
 directories:
   buildResources: build
 files:
@@ -23,7 +23,7 @@ nsis:
   runAfterFinish: false
   allowElevation: true
   allowToChangeInstallationDirectory: true
-  script: build/installer.nsi
+  include: build/installer.nsh
   warningsAsErrors: false
 mac:
   extendInfo:

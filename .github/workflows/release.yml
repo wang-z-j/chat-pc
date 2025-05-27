@@ -3,7 +3,7 @@ name: Build Windows EXE
 on:
   push:
     tags:
-      - 'v*' # 推送版本标签时触发，如 v1.0.1
+      - 'v*'
 
 jobs:
   build-win:
@@ -19,16 +19,19 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 18 # 建议使用 LTS 版本（如 18）
+          node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Build electron app (generate out/main/index.js)
+        run: npm run build
+
+      - name: Check out/main exists
+        run: dir /s /b out\main\index.js
+
       - name: Install NSIS
         run: choco install nsis -y
-      - name: Build electron app (dir)
-        run: npx electron-builder --win --dir
-        # 这一步会生成 win-unpacked
-      - name: Check win-unpacked contents
-        run: dir /s .\dist\win-unpacked
-      - name: Build and publish to GitHub Releases
-        run: npx electron-builder --win --publish always
+
+      - name: Build installer & publish
+        run: npm run publish:win_github

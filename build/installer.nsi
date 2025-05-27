@@ -1,6 +1,5 @@
 ; 必须首行
 Unicode true
-!echo "APP_DIR = ${APP_DIR}"
 !include "MUI2.nsh"
 !include "nsDialogs.nsh"
 
@@ -50,8 +49,7 @@ Section "Install"
   SetOutPath "$INSTDIR"
 
   ; ★ 复制完整应用文件。${APP_DIR} 由 electron-builder 注入，路径指向 win-unpacked
-  File /r "${APP_DIR}\*"
-
+  File /r "dist\win-unpacked\*"
   ; 额外工具
   ;File "${BUILD_RESOURCES_DIR}\syspin.exe"
 

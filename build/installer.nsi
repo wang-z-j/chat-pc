@@ -3,9 +3,9 @@ Unicode true
 !include "MUI2.nsh"
 !include "nsDialogs.nsh"
 
-!define PRODUCT_NAME   "${productName}"
-!define PRODUCT_VER    "${version}"
-!define EXE_NAME       "${executableName}.exe"
+;!define PRODUCT_NAME   "${productName}"
+;!define PRODUCT_VER    "${version}"
+;!define EXE_NAME       "${executableName}.exe"
 
 ;----------------  页面顺序  ----------------
 !insertmacro MUI_PAGE_WELCOME

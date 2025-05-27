@@ -21,7 +21,7 @@ nsis:
   runAfterFinish: false
   allowElevation: true
   allowToChangeInstallationDirectory: true
-  include: build/installer.nsh
+  script: build/installer.nsi
   warningsAsErrors: false
 mac:
   extendInfo:

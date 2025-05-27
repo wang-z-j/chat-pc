@@ -1,5 +1,5 @@
 appId: com.electron.app
-productName: LanyiAIPortal
+productName: 蓝翼AI门户
 directories:
   buildResources: build
 files:

@@ -15,11 +15,11 @@ Var AutoStartState
 Var TaskbarPinCheckState
 
 ; ✅ 你希望的引导顺序
-!insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_DIRECTORY
+;!insertmacro MUI_PAGE_WELCOME
+;!insertmacro MUI_PAGE_DIRECTORY
 Page custom SetOptions SetOptionsLeave
-!insertmacro MUI_PAGE_INSTFILES
-!insertmacro MUI_PAGE_FINISH
+;!insertmacro MUI_PAGE_INSTFILES
+;!insertmacro MUI_PAGE_FINISH
 
 
 ; 自定义选项页

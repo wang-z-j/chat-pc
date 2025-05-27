@@ -37,4 +37,4 @@ jobs:
         run: choco install nsis -y
 
       - name: Build installer & publish
-        run: npm run publish:win_github
+        run: npx electron-builder --win --publish always

@@ -9,12 +9,12 @@ Unicode true
 
 ;----------------  页面顺序  ----------------
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "build\\license.txt"
+;!insertmacro MUI_PAGE_LICENSE "build\\license.txt"
 !insertmacro MUI_PAGE_DIRECTORY
 Page custom Page_Options Page_Options_Leave
 !insertmacro MUI_PAGE_INSTFILES
 !insertmacro MUI_PAGE_FINISH
-!insertmacro MUI_LANGUAGE "SimpChinese"
+;!insertmacro MUI_LANGUAGE "SimpChinese"
 
 ;----------------  自定义选项页  ----------------
 Var CHK_DESKTOP

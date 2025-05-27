@@ -28,7 +28,7 @@ jobs:
         run: npm run build
 
       - name: Check out/main exists
-        run: dir /s /b out\main\index.js
+        run: Get-ChildItem -Path out/main/index.js -Recurse
 
       - name: Install NSIS
         run: choco install nsis -y

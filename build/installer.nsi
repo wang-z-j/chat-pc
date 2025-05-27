@@ -47,15 +47,9 @@ FunctionEnd
 ; ---------------- 主 Section ----------------
 Section "Install"
   SetOutPath "$INSTDIR"
-  DetailPrint "💡 APP_DIR = ${APP_DIR}"
+
   ; ★ 复制完整应用文件。${APP_DIR} 由 electron-builder 注入，路径指向 win-unpacked
-  IfFileExists "${APP_DIR}\*" 0 NoFiles
-    DetailPrint "✅ APP_DIR 有文件"
-    File /r "${APP_DIR}/*"
-    Goto Done
-  NoFiles:
-    DetailPrint "⚠️ APP_DIR 为空或不存在"
-  Done:
+  File /r "D:\a\chat-pc\chat-pc\dist\win-unpacked\*"
   ; 额外工具
   ;File "${BUILD_RESOURCES_DIR}\syspin.exe"
 
